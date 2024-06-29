@@ -1,0 +1,15 @@
+
+server:
+  port: 19090
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/crazy-horizontal-scaling-db
+    username: user
+    password: user
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
