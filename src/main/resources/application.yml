@@ -1,6 +1,6 @@
 
-server:
-  port: 19090
+#server:
+#  port: 19090
 
 
 spring:
@@ -9,7 +9,22 @@ spring:
     url: jdbc:postgresql://localhost:5432/crazy-horizontal-scaling-db
     username: user
     password: user
+
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+
   jpa:
     show-sql: false
     hibernate:
       ddl-auto: update
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  activemq:
+    packages:
+      trust-all: true
