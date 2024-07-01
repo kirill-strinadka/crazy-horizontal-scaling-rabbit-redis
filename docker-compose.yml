@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: crazy-horizontal-scaling-postgres
+    environment:
+      POSTGRES_DB: crazy-horizontal-scaling-db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+    ports:
+      - "5432:5432"
+    networks:
+      - crazy-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: crazy-horizontal-scaling-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - crazy-network
+
+  redis:
+    image: redis
+    container_name: crazy-horizontal-scaling-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - crazy-network
+
+networks:
+  crazy-network:
+    driver: bridge
